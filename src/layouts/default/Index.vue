@@ -1,90 +1,25 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
-
-      <v-spacer />
-    </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      dark
-      app
-      :src="require('@/assets/sidebar.jpg')"
-    >
-      <template v-slot:img="props">
-        <v-img
-          :gradient="gradient"
-          v-bind="props"
-        />
-      </template>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Application
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            subtext
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider />
-
-      <v-list
-        dense
-        nav
-      >
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-          :to="item.to"
-          active-class="primary"
-          class="py-1"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-main>
-      <v-container fluid />
-      <router-view />
-    </v-main>
+    <default-bar @drawer="drawer = !drawer" />
+    <default-drawer v-model="drawer" />
+    <default-view />
   </v-app>
 </template>
 
 <script>
+import DefaultBar from './AppBar'
+import DefaultDrawer from './Drawer'
+import DefaultView from './View'
 export default{
   name: 'DefaultLayout',
+  components: {
+    DefaultBar,
+    DefaultDrawer,
+    DefaultView
+  },
   data: () => ({
     drawer: false,
-    gradient: 'rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)',
-    items: [
-      { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
-      { title: 'Grid System', icon: 'mdi-cellphone-arrow-down', to: '/grid-system' },
-      { title: 'GridListPage', icon: 'mdi-clipboard-list-outline', to: '/grid-list-page' },
-      { title: 'Breakpoints', icon: 'mdi-laser-pointer', to: '/break-points' },
-      { title: 'Typegraphy', icon: 'mdi-text-account', to: '/type-graphy' },
-      { title: 'Tables', icon: 'mdi-file-table-box-multiple-outline', to: '/tables' },
-      { title: 'Forms', icon: 'mdi-format-float-none', to: '/forms' },
-      { title: 'Buttons', icon: 'mdi-gesture-tap-button', to: '/buttons' },
-      { title: 'Icons', icon: 'mdi-sheep', to: '/icons' },
-      { title: 'SignIn', icon: 'mdi-login', to: '/authentication/sign-in' },
-      { title: 'SignUp', icon: 'mdi-logout', to: '/authentication/sign-up' },
-      { title: 'ProductList', icon: 'mdi-reproduction', to: '/page/product-list' },
-    ],
-    right: null,
+
   }),
 }
 </script>
