@@ -14,14 +14,15 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
-import ProductItem from '@/components/ProductItem.vue'
-export default{
+import ProductItem from '@/components/product/ProductItem'
+export default {
+  name: 'ProductList',
   components: {
     ProductItem
   }
 }
 </script>
 <style lang="">
+
 </style>

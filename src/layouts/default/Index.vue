@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <default-bar @drawer="drawer = !drawer" />
-    <default-drawer v-model="drawer" />
+    <default-bar />
+    <default-drawer />
     <default-view />
   </v-app>
 </template>
@@ -10,17 +10,14 @@
 import DefaultBar from './AppBar'
 import DefaultDrawer from './Drawer'
 import DefaultView from './View'
-export default{
+export default {
   name: 'DefaultLayout',
   components: {
     DefaultBar,
     DefaultDrawer,
     DefaultView
   },
-  data: () => ({
-    drawer: false,
 
-  }),
 }
 </script>
 <style lang="">

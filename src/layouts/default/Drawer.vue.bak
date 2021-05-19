@@ -63,7 +63,7 @@ export default {
       set (value) {
         return this.$store.dispatch('app/toggleDrawer', value)
       }
-    },
+    }
   }
 }
 </script>

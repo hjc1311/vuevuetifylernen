@@ -3,10 +3,9 @@
     <authentication-view />
   </v-app>
 </template>
-
 <script>
 import AuthenticationView from './View'
-export default{
+export default {
   name: 'AuthenticationLayout',
   components: {
     AuthenticationView
@@ -14,4 +13,5 @@ export default{
 }
 </script>
 <style lang="">
+
 </style>

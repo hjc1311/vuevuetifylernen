@@ -1,61 +1,100 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-card>
       <v-card-title>
-        $vuetify.Breakpoints.name: {{ $vuetify.breakpoint.name }}
+        Current breakpoint name
       </v-card-title>
-      <v-container class="gray lighten-3">
-        <v-dialog
-          v-model="dialog"
-          width="500"
+      <v-card-text>
+        <div class="text-subtitle-1">
+          {{ $vuetify.breakpoint.name }}
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        Breakpoints
+      </v-card-title>
+      <v-card-text>
+        <div
+          v-for="(name, index) in ['xs', 'sm', 'md', 'lg', 'xl']"
+          :key="index"
+          class="text-subtitle-1"
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="red lighten-2"
-              dark
-              v-bind="attrs"
-              v-on="on"
-            >
-              Click Me
-            </v-btn>
-          </template>
-
-          <v-card>
-            <v-card-title class="text-h5 grey lighten-2">
-              Privacy Policy
-            </v-card-title>
-
-            <v-card-text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </v-card-text>
-
-            <v-divider />
-
-            <v-card-actions>
-              <v-spacer />
-              <v-btn
-                color="primary"
-                text
-                @click="dialog = false"
-              >
-                I accept
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-container>
+          {{ name }}: boolean <span class="font-weight-black">{{ $vuetify.breakpoint[name] }}</span>
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        Conditionals
+      </v-card-title>
+      <v-card-text>
+        <div
+          v-for="(name, index) in ['xsOnly', 'smOnly', 'smAndDown', 'smAndUp', 'mdOnly', 'mdAndDown', 'mdAndUp', 'lgOnly', 'lgAndDown', 'lgAndUp', 'xlOnly']"
+          :key="index"
+          class="text-subtitle-1"
+        >
+          {{ name }}: boolean <span class="font-weight-black">{{ $vuetify.breakpoint[name] }}</span>
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        Mobile
+      </v-card-title>
+      <v-card-text>
+        <div>
+          mobile: {{ $vuetify.breakpoint.mobile }}
+        </div>
+        <div>
+          mobileBreakpoint: {{ $vuetify.breakpoint.mobileBreakpoint }}
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        Dimensions
+      </v-card-title>
+      <v-card-text>
+        <div>
+          height: {{ $vuetify.breakpoint.height }}
+        </div>
+        <div>
+          width: {{ $vuetify.breakpoint.width }}
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        Thresholds
+      </v-card-title>
+      <v-card-text>
+        <div>
+          thresholds: {{ $vuetify.breakpoint.thresholds }}
+        </div>
+      </v-card-text>
+    </v-card>
+    <v-card class="mt-5">
+      <v-card-title>
+        scrollBarWidth
+      </v-card-title>
+      <v-card-text>
+        <div>
+          scrollBarWidth: {{ $vuetify.breakpoint.scrollBarWidth }}
+        </div>
+      </v-card-text>
     </v-card>
   </v-container>
 </template>
-
 <script>
-export default{
-  data: () => [{
+export default {
+  name: 'Breakpoints',
+  data: () => ({
     dialog: false,
-  }],
+  }),
   computed: {
-    height (){
-      switch (this.$vuetify.breakpoint.name){
+    height () {
+      switch (this.$vuetify.breakpoint.name) {
       case 'xs': return 100
       case 'sm': return 200
       case 'md': return 300
@@ -67,4 +106,5 @@ export default{
 }
 </script>
 <style lang="">
+
 </style>

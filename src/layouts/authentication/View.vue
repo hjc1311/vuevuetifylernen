@@ -3,11 +3,11 @@
     <router-view />
   </v-main>
 </template>
-
 <script>
-export default{
+export default {
   name: 'AuthenticationView'
 }
 </script>
 <style lang="">
+
 </style>

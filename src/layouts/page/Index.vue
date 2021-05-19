@@ -1,14 +1,15 @@
 <template>
   <v-app>
-    <page-view />
     <page-bar />
+
+    <page-view />
   </v-app>
 </template>
-
 <script>
-import PageView from './View'
 import PageBar from './AppBar'
-export default{
+import PageView from './View'
+
+export default {
   name: 'PageLayout',
   components: {
     PageView,
