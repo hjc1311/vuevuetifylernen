@@ -9,7 +9,6 @@
     <v-spacer />
   </v-app-bar>
 </template>
-
 <script>
 export default{
   name: 'DefaultBar'

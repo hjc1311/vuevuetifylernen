@@ -1,9 +1,7 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
     v-bind="$attrs"
     dark
-    app
     :src="require('@/assets/sidebar.jpg')"
   >
     <template v-slot:img="props">
@@ -48,7 +46,6 @@
     </v-list>
   </v-navigation-drawer>
 </template>
-
 <script>
 export default{
   name: 'DefaultDrawer',

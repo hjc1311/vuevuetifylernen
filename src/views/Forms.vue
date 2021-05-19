@@ -61,21 +61,15 @@
     </v-form>
   </v-container>
 </template>
-
 <script>
 export default{
   data: () => ({
-    valid: true,
     name: '',
     nameRules: [
       v => !!v || 'Name is required',
       v => (v && v.length <= 10) || 'Name must be less than 10 characters',
     ],
     email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
     select: null,
     items: [
       'Item 1',
@@ -85,7 +79,6 @@ export default{
     ],
     checkbox: false,
   }),
-
   methods: {
     validate () {
       this.$refs.form.validate()
